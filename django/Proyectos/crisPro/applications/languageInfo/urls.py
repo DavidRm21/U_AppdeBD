@@ -5,11 +5,11 @@ from . import views
 app_name = 'languageInfo_app'
 
 urlpatterns = [
-    path('ShowLanguage/', 
+    path('showLanguage/', 
         views.ShowLanguage.as_view()),
-    path('NewLanguage/', 
+    path('createLanguage/', 
         views.NewLanguageInfo.as_view(),
         name='NewLanguageInfo'),
-    path('ShowIdLanguage/<int:pk>/', 
+    path('showIdLanguage/<int:pk>/', 
         views.ShowLanguageId.as_view()),
 ]

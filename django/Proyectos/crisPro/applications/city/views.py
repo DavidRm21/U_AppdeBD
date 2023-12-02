@@ -43,7 +43,7 @@ from .models import City
 # CREAR City
 # ------------------------------------------------------------------
 
-class NewCity(CreateView):
+class NewCity(CreateAPIView):
         queryset = City.objects.all()
         serializer_class = CitySerializer
         """ # Modelo usado para la vista

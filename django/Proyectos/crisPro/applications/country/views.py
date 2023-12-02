@@ -46,7 +46,7 @@ from .models import Country
 
 class NewCountry(CreateAPIView):
     queryset = Country.objects.all()
-    serializar_class = CountrySerializer
+    serializer_class = CountrySerializer
     
 class ShowCountry(ListAPIView):
     queryset = Country.objects.all()

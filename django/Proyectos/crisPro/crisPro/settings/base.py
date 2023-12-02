@@ -18,7 +18,11 @@ def get_secret(secret_name, secrets= secret):
 SECRET_KEY = get_secret('SECRET_KEY')
 
 # Application definition
-MY_APPS = ()
+MY_APPS = (
+    'applications.city',
+    'applications.country',
+    'applications.languageInfo',
+)
 DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -27,7 +31,9 @@ DJANGO_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
-THIRD_APPS = ()
+THIRD_APPS = (
+    'rest_framework',
+)
 INSTALLED_APPS = MY_APPS + DJANGO_APPS + THIRD_APPS
 
 MIDDLEWARE = [
