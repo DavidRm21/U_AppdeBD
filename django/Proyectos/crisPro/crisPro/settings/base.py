@@ -33,6 +33,8 @@ DJANGO_APPS = (
 )
 THIRD_APPS = (
     'rest_framework',
+    'corsheaders',
+    'compressor',
 )
 INSTALLED_APPS = MY_APPS + DJANGO_APPS + THIRD_APPS
 
@@ -44,7 +46,25 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+#_________ INICIO CORS_ALLOWED_ORIGINS
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+]
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+#_________ FIN CORS_ALLOWED_ORIGINS
 
 ROOT_URLCONF = 'crisPro.urls'
 

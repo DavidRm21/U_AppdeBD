@@ -5,14 +5,14 @@ from . import views
 app_name = "country_app"
 
 urlpatterns = [
-        path('createCountry/',
-                views.NewCountry.as_view(),
-                name='NewCountry'),
-        path('CountryAPISerializer/',
-                views.CountryAPISerializer.as_view(),
-                name='CountryAPISerializer'),
-        path('showCountry/', 
-                views.ShowCountry.as_view()),
-        path('showIdCountry/', 
+        path('NewCountry/',
+                views.NewCountry.as_view(),),
+        path('ShowCountry/',
+                views.ShowCountry.as_view(),),
+        path('ShowIdCountry/<pk>', 
                 views.ShowIdCountry.as_view()),
+        path('UpdateCountry/', 
+                views.UpdateCountry.as_view()),
+        path('DeleteCountry/',
+                views.DeleteCountry.as_view()),
 ]

@@ -6,29 +6,21 @@ from django.urls import reverse_lazy
 # APIS
 # ------------------------------------------------------------------
 from rest_framework.generics import (
+    # Lista
     ListAPIView,
-    ListCreateAPIView,
-    CreateAPIView,
-    # DetailView
+    # Lista por id
     RetrieveAPIView,
+    # Crear
+    CreateAPIView,
     # Delete
     DestroyAPIView,
     # Actualizar
     UpdateAPIView,
-    # Recupera y actualiza
-    RetrieveUpdateAPIView,
-    # Recupera y elimina
-    RetrieveDestroyAPIView,
 )
 
 from .serializer import (
     CountrySerializer
 )
-# ------------------------------------------------------------------
-# VISTAS A USAR
-# ------------------------------------------------------------------
-
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 # ------------------------------------------------------------------
 # MODELOS
@@ -36,28 +28,47 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Country
 
 # ------------------------------------------------------------------
-# FORMULARIOS
-# ------------------------------------------------------------------
-
-
-# ------------------------------------------------------------------
 # CREAR Country
 # ------------------------------------------------------------------
 
 class NewCountry(CreateAPIView):
-    queryset = Country.objects.all()
+    def get_queryset(self):
+        return Country.objects.all()
     serializer_class = CountrySerializer
-    
+
+# ------------------------------------------------------------------
+# MOSTRAR Country
+# ------------------------------------------------------------------
+
 class ShowCountry(ListAPIView):
-    queryset = Country.objects.all()
-    serializer_class = CountrySerializer
-
-class ShowIdCountry(RetrieveUpdateAPIView):
-    queryset = Country.objects.all()
+    
+    def get_queryset(self):
+        return Country.objects.all()
     serializer_class = CountrySerializer
 
 # ------------------------------------------------------------------
-# API CREAR UN TRABAJO
+# MOSTRAR POR ID Country
 # ------------------------------------------------------------------
-class CountryAPISerializer(CreateAPIView):
+
+class ShowIdCountry(RetrieveAPIView):
+    
+    def get_queryset(self):
+        return Country.objects.all()
     serializer_class = CountrySerializer
+
+# ------------------------------------------------------------------
+# ELIMINAR Country
+# ------------------------------------------------------------------
+
+class DeleteCountry(DestroyAPIView):
+    def get_queryset(self):
+        return Country.objects.all()
+    
+# ------------------------------------------------------------------
+# ACTUALIZAR Country
+# ------------------------------------------------------------------
+    
+class UpdateCountry(UpdateAPIView):
+    def get_queryset(self):
+        return Country.objects.all()
+

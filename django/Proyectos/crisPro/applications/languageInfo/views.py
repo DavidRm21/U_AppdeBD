@@ -6,57 +6,74 @@ from django.urls import reverse_lazy
 # APIS
 # ------------------------------------------------------------------
 from rest_framework.generics import (
+    # Lista
     ListAPIView,
-    ListCreateAPIView,
+    # Crear
     CreateAPIView,
-    # DetailView
+    # Lista por id
     RetrieveAPIView,
     # Delete
     DestroyAPIView,
     # Actualizar
     UpdateAPIView,
-    # Recupera y actualiza
-    RetrieveUpdateAPIView,
-    # Recupera y elimina
-    RetrieveDestroyAPIView,
 )
 
 from .serializer import (
     LanguageInfoSerializer
 )
-# ------------------------------------------------------------------
-# VISTAS A USAR
-# ------------------------------------------------------------------
-
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 # ------------------------------------------------------------------
 # MODELOS
 # ------------------------------------------------------------------
 from .models import LanguageInfo
 
+
 # ------------------------------------------------------------------
-# FORMULARIOS
+# MOSTRAR LanguageInfo
 # ------------------------------------------------------------------
+
+class ShowLanguage(ListAPIView):
+    
+    def get_queryset(self):
+        return LanguageInfo.objects.all()
+    serializer_class = LanguageInfoSerializer
+
+# ------------------------------------------------------------------
+# MOSTRAR POR ID LanguageInfo
+# ------------------------------------------------------------------
+
+class ShowIdLanguage(RetrieveAPIView):
+
+    def get_queryset(self):
+        return LanguageInfo.objects.all()
+    serializer_class = LanguageInfoSerializer
 
 # ------------------------------------------------------------------
 # CREAR LanguageInfo
 # ------------------------------------------------------------------
 
 class NewLanguageInfo(CreateAPIView):
-    queryset = LanguageInfo.objects.all()
-    serializer_class = LanguageInfoSerializer
     
-class ShowLanguage(ListAPIView):
-    queryset = LanguageInfo.objects.all()
-    serializer_class = LanguageInfoSerializer
-
-class ShowLanguageId(RetrieveUpdateAPIView):
-    queryset = LanguageInfo.objects.all()
+    def get_queryset(self):
+        return LanguageInfo.objects.all()
     serializer_class = LanguageInfoSerializer
 
 # ------------------------------------------------------------------
-# API CREAR UN LENGUAJE
+# ELIMINAR LanguageInfo
 # ------------------------------------------------------------------
-class LanguageInfoAPISerializer(CreateAPIView):
+    
+class DeleteLanguageInfo(DestroyAPIView):
+    
+    def get_queryset(self):
+        return LanguageInfo.objects.all()
+    serializer_class = LanguageInfoSerializer
+
+# ------------------------------------------------------------------
+# ACTUALIZAR LanguageInfo
+# ------------------------------------------------------------------
+
+class UpdateLanguageInfo(UpdateAPIView):
+
+    def get_queryset(self):
+        return LanguageInfo.objects.all()
     serializer_class = LanguageInfoSerializer

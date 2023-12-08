@@ -7,8 +7,7 @@ class Country(models.Model):
     code = models.CharField(
         'code',
         null=False,
-        max_length=7, 
-        primary_key=True
+        max_length=7 
         )
     
     name = models.CharField(
@@ -65,7 +64,7 @@ class Country(models.Model):
     life_expectancy = models.DecimalField(
         'LifeExpectancy',
         null=False,
-        max_digits=3,
+        max_digits=5,
         decimal_places=1,
         default=0.0
         )
@@ -105,8 +104,9 @@ class Country(models.Model):
         default=''
         )
     
-    capital = models.IntegerField(
+    capital = models.CharField(
         'Capital',
+        max_length=50,
         default=0,
         null=True
         )
@@ -142,4 +142,4 @@ class Country(models.Model):
         unique_together = ('name', 'code')
     
     def __str__(self):
-        return f"{self.name} - {self.code}"
+        return f"{self.name} - {self.code} - {self.id}"

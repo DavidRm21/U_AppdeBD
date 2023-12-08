@@ -34,6 +34,19 @@ USE_I18N = True
 
 USE_TZ = True
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+CKEDITOR_UPLOAD_PATH = "uploads/"
+COMPRESS_PRECOMPILERS = (
+    (
+        'text/x-scss',
+        'django_libsass.SassCompiler'
+    ),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

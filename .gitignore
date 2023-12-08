@@ -12,7 +12,7 @@ migrations/*
 *.so
 entorno/*
 /entorno
-/Entornos
+django/Entornos
 Entornos/*
 
 # Distribution / packaging
