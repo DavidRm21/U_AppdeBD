@@ -1,0 +1,75 @@
+:root 
+    --sm: 14px
+    --md: 16px
+    --lg: 18px
+    --white: #dbdbdb
+    --dark-grey: #575757
+    --green-blue: #3bc6bd
+    --dark-pink: #8C3B51
+    --dark-green: #1E3340
+    --dark-blue: #494C8C
+
+
+.nav
+    display: grid
+    grid-template-columns: repeat(5, 1fr) + 3fr
+    align-items: center
+    justify-items: center
+    background: linear-gradient(175deg, var(--dark-pink), var(--dark-blue))
+    padding: 10px
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 1
+    .navLink
+        color: var(--white)
+        text-decoration: none
+        &:hover
+            text-decoration: underline
+    
+.navbar
+    width: 100vw
+    height: 70px
+    position: fixed
+    top: 0
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.navLink-logo
+    width: 100px
+    height: 50px
+    margin-left: 28px
+    background-image: url('../assets/mundowhitetext.svg')
+    background-position: center
+    background-repeat: no-repeat
+    background-size: contain
+
+.navbar-right
+    width: 330px
+    height: 50px
+    margin-right: 28px
+    display: flex
+    list-style: none
+
+.navbar-profile
+    display: flex
+
+.profile-photo
+    width: 50px
+    height: 50px
+    background-image: url('../assets/monokuma.svg')
+    background-position: center
+    background-size: contain
+
+.profile-data
+    color: var(--white)
+    padding: 0 20px
+
+.profile-name
+    font-size: var(--lg)
+    font-weight: bold
+
+.profile-description
+    font-size: var(--sm)

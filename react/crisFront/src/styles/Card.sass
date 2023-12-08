@@ -1,0 +1,43 @@
+.main-card
+    width: 80vw
+    height: 80vh
+    display: grid
+    place-items: center
+    grid-template-columns: 1fr 1fr
+    gap: 20px
+    color: #1E3340
+
+    
+.card-container
+    width: 100%
+    height: auto
+    padding: 16px
+    min-width: 350px
+    display: grid
+    grid-template-columns: 1fr 1fr
+    align-content: end
+    box-shadow: 8px 8px 5px 0 #bdbdbdbf
+    background-color: #f5f5f5
+    border-radius: 30px
+
+.container-photo
+    margin: 0
+    padding: 0
+    width: 300px
+    height: 200px
+    
+    p
+        margin: 0
+
+    .photo
+        width: 250px
+        height: 150px
+        position: relative
+        border-radius: 12px
+
+
+@media screen and ( max-width: 700px )
+    .card-container
+        display: flex
+        flex-direction: column
+    
