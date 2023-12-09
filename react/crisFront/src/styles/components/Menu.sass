@@ -1,13 +1,14 @@
+$fourth-color: #494C8C
+$fifth-color: #8C3B51
+$white: #dbdbdb
+
 :root 
     --sm: 14px
     --md: 16px
     --lg: 18px
-    --white: #dbdbdb
     --dark-grey: #575757
     --green-blue: #3bc6bd
-    --dark-pink: #8C3B51
     --dark-green: #1E3340
-    --dark-blue: #494C8C
 
 
 .nav
@@ -15,7 +16,7 @@
     grid-template-columns: repeat(5, 1fr) + 3fr
     align-items: center
     justify-items: center
-    background: linear-gradient(175deg, var(--dark-pink), var(--dark-blue))
+    background: linear-gradient(175deg, $fifth-color, $fourth-color)
     padding: 10px
     position: fixed
     top: 0
@@ -23,7 +24,7 @@
     width: 100%
     z-index: 1
     .navLink
-        color: var(--white)
+        color: $white
         text-decoration: none
         &:hover
             text-decoration: underline
@@ -73,3 +74,14 @@
 
 .profile-description
     font-size: var(--sm)
+
+
+::-webkit-scrollbar
+    width: 5px
+    border-radius: 30px
+
+::-webkit-scrollbar-thumb
+    background-color: #888
+    border-radius: 5px
+    &:hover
+        background-color: #555
