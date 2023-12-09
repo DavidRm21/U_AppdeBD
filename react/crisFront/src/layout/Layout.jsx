@@ -1,6 +1,6 @@
-import React from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import { Menu } from "../components/Menu";
+import { Footer } from "../components/Footer";
 
 export const Layout = () => {
     const navigation = useNavigation();
@@ -13,6 +13,7 @@ export const Layout = () => {
                     <div className="alert alert-info my-5">Loading...</div>
                 )}
                 <Outlet></Outlet>
+                <Footer/>
                 </main>
             </div>
         );

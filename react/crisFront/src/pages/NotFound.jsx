@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useRouteError } from "react-router-dom";
-import '../styles/NotFound.sass'
 
 export const NotFound = () => {
     const error = useRouteError();

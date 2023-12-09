@@ -1,7 +1,6 @@
 import { getCountryApi } from '../api/Country/GetCountry'
 import { TableCountry } from '../components/TableCountry'
 import { CardCountry } from '../components/CardCountry'
-import '../styles/Country.sass'
 import { useEffect, useState } from 'react'
 
 export const Country = () => {
@@ -21,17 +20,17 @@ export const Country = () => {
     }
 
     return (
-        <main className='main-country'>
+        <main className='main-model'>
 
             <div className='container-form'>
 
-                <form action="" className='form-country'>
+                <form action="" className='form-model'>
                     <div className='form-title'>
                         <h2>Formulario:</h2>
                         <h3>País</h3>
                     </div>
 
-                    <div className='form-country-fields'>
+                    <div className='form-model-fields'>
 
                         <label htmlFor="">Código: </label>
                         <input type="text" />
@@ -94,7 +93,7 @@ export const Country = () => {
 
             </div>
 
-            <h2>Resultado</h2>
+            <h2>Galería</h2>
 
             <div className='container-data'>
                 <CardCountry

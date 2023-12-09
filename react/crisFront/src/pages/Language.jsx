@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { TableLanguage } from '../components/TableLanguage'
 import { getLanguageApi } from '../api/Language/GetLanguage'
 import { CardLanguage } from '../components/CardLanguage'
-import '../styles/Language.sass'
 
 export const Language = () => {
 
@@ -21,17 +20,17 @@ export const Language = () => {
     }
 
     return (
-        <main className='main-language'>
+        <main className='main-model'>
 
             <div className='container-form'>
 
-            <form action="" className='form-language'>
+            <form action="" className='form-model'>
                 <div className='form-title'>
                     <h2>Formulario:</h2>
                     <h3>Lenguajes</h3>
                 </div>
 
-                <div className="form-language-fields">
+                <div className="form-model-fields">
 
                     <label htmlFor="">Lenguaje: 
                     </label>
@@ -62,7 +61,7 @@ export const Language = () => {
             />
             </div>
 
-            <h2>Resultados</h2>
+            <h2>Galería</h2>
 
             <div className="container-data">
                 <CardLanguage

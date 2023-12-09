@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/TableCity.sass'
+import '../styles/components/TableCity.sass'
 
 export const TableLanguage = ({listado}) => {
 

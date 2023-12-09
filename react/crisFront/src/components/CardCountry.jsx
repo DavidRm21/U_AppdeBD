@@ -1,4 +1,3 @@
-import '../styles/Card.sass'
 
 export const CardCountry = ({listado}) => {
 

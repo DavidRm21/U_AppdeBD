@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import '../styles/City.sass'
+import { useEffect, useState } from 'react'
 import { TableCity } from '../components/TableCity'
 import { getCityApi } from '../api/City/GetCity'
 import { CardCity } from '../components/CardCity'
@@ -21,17 +20,17 @@ export const City = () => {
     }
 
     return (
-        <main className='main-city'>
+        <main className='main-model'>
 
             <div className='container-form'>
 
-            <form action="" className='form-city'>
+            <form action="" className='form-model'>
                 <div className='form-title'>
                     <h2>Formulario:</h2>
-                    <h3></h3>
+                    <h3>Ciudades</h3>
                 </div>
 
-                <div className="form-city-fields">
+                <div className="form-model-fields">
 
                     <label htmlFor=""> Codigo:
                     </label>
@@ -66,7 +65,7 @@ export const City = () => {
                 />
 
             </div>
-            <h2>Resultados</h2>
+            <h2>Galería</h2>
             
             <div className='container-data'>
                 <CardCity

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react';
-import '../styles/Menu.sass'
+import '../styles/base.sass'
 
 const Menu = () => {
 

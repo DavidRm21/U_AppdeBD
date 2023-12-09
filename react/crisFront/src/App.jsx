@@ -1,8 +1,6 @@
 import { RouterProvider } from 'react-router-dom'
 import router from './routes/Router.jsx'
-import './styles/App.sass'
-import { useState } from 'react'
-
+import './App.sass'
 
 
 function App() {

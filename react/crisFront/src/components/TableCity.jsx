@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/TableCity.sass'
 
 export const TableCity = ({listado}) => {
 
