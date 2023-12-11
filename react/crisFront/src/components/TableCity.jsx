@@ -1,9 +1,15 @@
 import React from 'react'
+import { DeleteCityApi } from '../api/City/DeleteCity'
 
-export const TableCity = ({listado}) => {
+export const TableCity = ({cityList, setResetList, setCurrentId}) => {
 
-    let cityList = listado
 
+    const deleteCity = (cityID) => {
+        DeleteCityApi(cityID).then(() => {
+            setResetList(v => !v)
+        })
+        .catch(console.error)
+    }
     return (    
         <div className="form-container">
 
@@ -11,10 +17,12 @@ export const TableCity = ({listado}) => {
                 <thead>
                     
                     <tr>
+                        <th>id</th>
                         <th>Nombre</th>
-                        <th>Distritos</th>
                         <th>Población</th>
                         <th>Contaminación</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -22,10 +30,16 @@ export const TableCity = ({listado}) => {
 
                     {cityList.map(item => (
                         <tr key={item.id}>
+                            <td>{item.id}</td>
                             <td>{item.name}</td>
-                            <td>{item.district}</td>
                             <td>{item.population} M aprox.</td>
                             <td>{item.pollution_rate || 0} AQI</td>
+                            <td className='table-icon table-icon-del'
+                            onClick={() => deleteCity(item.id)}
+                            ></td>
+                            <td className='table-icon table-icon-look'
+                            onClick={() => setCurrentId(item.id)}
+                            ></td>
                         </tr>
                     ))}
 

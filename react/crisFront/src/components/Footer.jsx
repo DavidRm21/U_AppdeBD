@@ -4,30 +4,31 @@ export const Footer = () => {
         <footer className='footer'>
             
             <div className="info">
-                <h3>Footer</h3>
-                <p>Item</p>
-                <p>Item</p>
-                <p>Item</p>
+                <h3>Aplicaciones de bases de datos</h3>
+                <div className='footer-profile'>
+                    <div className='profile-photo'></div>
+                    <div className='profile-data'>
+                        <div className='profile-name'>Cristian David Romero Melo</div>
+                        <div className='profile-description'>Estudiante de Universitaria</div>
+                    </div>
+                </div>
             </div>
 
-            <figure className="social-media" >
+            <div className="social-media" >
                 
-                <img 
-                src="C:/Users/crisd/Proyectos/ABD/react/crisFront/src/assets/w_git.svg" 
-                alt="Icon github"
-                className="icon"/>
+                <a href="https://github.com/DavidRm21" className="link-media">
+                    <span className="icon icon-github"></span>
+                </a>
 
-                <img 
-                src="../assets/w_whatsapp.svg" 
-                alt="Icon whatsapp" 
-                className="icon"/>
+                <a href="https://web.whatsapp.com/" className="link-media">
+                    <span className="icon icon-whatsapp"/>
+                </a>
 
-                <img 
-                src="../assets/w_instagram.svg" 
-                alt="Icon instagram"
-                className="icon"/>
+                <a href="https://www.instagram.com/" className="link-media">
+                    <span className="icon icon-instagram"/>
+                </a>
 
-            </figure>
+            </div>
         </footer>
     )
 }

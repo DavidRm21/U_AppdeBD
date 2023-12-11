@@ -1,8 +1,14 @@
 import React from 'react'
+import { DeleteCountryApi } from '../api/Country/DeleteCountry'
 
-export const TableCountry = ({listado}) => {
+export const TableCountry = ({ countryList, setResetList, setCurrentId }) => {
 
-    let countryList = listado
+    const deleteCountry = (languageID) => {
+        DeleteCountryApi(languageID).then(() => {
+            setResetList(v => !v)
+        })
+        .catch(console.error)
+    } 
 
     return (    
         <div className="form-container">
@@ -15,10 +21,12 @@ export const TableCountry = ({listado}) => {
                 <thead>
                     
                     <tr>
+                        <th>Id</th>
                         <th>Nombre</th>
-                        <th>Continente</th>
                         <th>Capital</th>
-                        <th>Población</th>
+                        <th>Continente</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -26,10 +34,16 @@ export const TableCountry = ({listado}) => {
 
                     {countryList.map(item => (
                         <tr key={item.id}>
+                            <td>{item.id}</td>
                             <td>{item.name}</td>
-                            <td>{item.continent}</td>
                             <td>{item.capital}</td>
-                            <td>{item.population} M</td>
+                            <td>{item.continent}</td>
+                            <td className='table-icon table-icon-del'
+                            onClick={() => deleteCountry(item.id)}
+                            ></td>
+                            <td className='table-icon table-icon-look'
+                            onClick={() => setCurrentId(item.id)}
+                            ></td>
                         </tr>
                     ))}
 

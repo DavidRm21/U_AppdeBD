@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const postLanguageApi = (url, data)=>{
+export const postLanguageApi = (data)=>{
 
-    return axios.post(url, data)
+    return axios.post('http://127.0.0.1:8000/api/NewLanguage/', data)
     
 }

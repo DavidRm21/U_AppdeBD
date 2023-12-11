@@ -35,9 +35,21 @@
         position: relative
         border-radius: 12px
 
+.container-national-anthem
+    width: 280px
+    padding: 12px
+    height: 300px
+    border: 2px dotted #bdbdbdbf
+    border-radius: 20px
+    overflow-x: hidden
+    overflow-y: auto
 
-@media screen and ( max-width: 700px )
-    .card-container
-        display: flex
-        flex-direction: column
+    .national-anthem
+        font-size: 12px
+        font-family: 'Helvetica'
+
+@media screen and ( max-width: 1200px )
+    .main-card
+        display: grid
+        grid-template-columns: 1fr
     

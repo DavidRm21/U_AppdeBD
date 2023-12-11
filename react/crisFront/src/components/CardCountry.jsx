@@ -1,7 +1,5 @@
 
-export const CardCountry = ({listado}) => {
-
-    let countryList = listado
+export const CardCountry = ({countryList}) => {
     
     return (
         <main className="main-card">
@@ -17,24 +15,33 @@ export const CardCountry = ({listado}) => {
                         />
                     </figure>
                     
-                    <div className='card-info'>
-                        <p><b>{country.name}</b></p>
-                        <p>Población: {country.population} millones</p>
-                        <p>Continente: {country.continent} </p>
-                        <p>Region: {country.region}  </p>
-                        <p>Superficie: {country.surface_area} </p>
-                        <p>Independencia: {country.indep_year}</p>
-                        <p>Esperanza de vida: {country.life_expectancy}</p>
-                        <p>Producto bruto actual: {country.gnp}</p>
-                        <p>Producto bruto anterior: {country.gnp_old}</p>
-                        <p>Nombre local: {country.local_name}</p>
-                        <p>Forma de gobierno: {country.government_form}</p>
-                        <p>Jefe de estado: {country.head_of_state}</p>
-                        <p>capital: {country.capital}</p>
-                        <p>lenguajes: {country.languages}</p>
+                        <div className="country-info-1">
+                            <p><b>{country.name}</b></p>
+                            <p>Población: {country.population} millones</p>
+                            <p>Continente: {country.continent} </p>
+                            <p>Superficie: {country.surface_area} Km2</p>
+                            <p>Independencia: {country.indep_year}</p>
+                        </div>
+
+                        <div className="country-info-2">
+                            <p>Nombre local: {country.local_name}</p>
+                            <p>Forma de gobierno: {country.government_form}</p>
+                            <p>Jefe de estado: {country.head_of_state}</p>
+                            <p>capital: {country.capital}</p>
+                            <p>Region: {country.region}  </p>
+                            <p>Esperanza de vida: {country.life_expectancy}</p>
+                            <p>Producto bruto actual: {country.gnp}</p>
+                            <p>Producto bruto anterior: {country.gnp_old}</p>
+                        </div>
+                        
+                        <div className="country-info-3">
+                            <h3 className="title-national-anthem">Himno nacional</h3>
+                            <div className="container-national-anthem">
+                                <pre className="national-anthem">{country.national_anthem}</pre>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
             ))}
 
         </main>

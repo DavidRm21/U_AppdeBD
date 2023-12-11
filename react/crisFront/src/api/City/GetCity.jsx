@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const getCityApi = (url) => {
+export const getCityApi = () => {
 
-    return axios.get(url)
+    return axios.get('http://localhost:8000/api/ShowCity/')
                 .then(async (res) => {
                     let cityArray = [];
 

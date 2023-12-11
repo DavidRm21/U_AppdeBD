@@ -128,6 +128,7 @@ class Country(models.Model):
     flag = models.ImageField(
         'Flag',
         upload_to='assets/',
+        null=True
         )
     
     languages = models.ManyToManyField(LanguageInfo)

@@ -1,4 +1,3 @@
-
 export const CardCity = ({listado}) => {
 
     let cityList = listado
@@ -11,7 +10,7 @@ export const CardCity = ({listado}) => {
                 <div className="card-container" key={city.id}>
                     
                     <figure className='container-photo'>
-                        <img 
+                        <img
                         src={city.photo_city} alt={city.name}
                         className='photo'
                         />

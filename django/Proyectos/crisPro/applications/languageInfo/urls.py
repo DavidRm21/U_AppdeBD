@@ -9,10 +9,10 @@ urlpatterns = [
         views.NewLanguageInfo.as_view()),
     path('ShowLanguage/', 
         views.ShowLanguage.as_view(),),
-    path('ShowIdLanguage/<pk>/', 
+    path('ShowIdLanguage/<pk>', 
         views.ShowIdLanguage.as_view()),
-    path('UpdateLanguage/<pk>/',
+    path('UpdateLanguage/<pk>',
         views.UpdateLanguageInfo.as_view()),
-    path('DeleteLanguage/<pk>/',
+    path('DeleteLanguage/<pk>',
         views.DeleteLanguageInfo.as_view()),
 ]

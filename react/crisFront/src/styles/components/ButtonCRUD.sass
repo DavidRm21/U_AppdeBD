@@ -1,0 +1,39 @@
+.container-button
+    margin: 40px 0
+    width: 250px
+    height: 64px
+    display: flex
+    flex-direction: row-reverse
+    justify-content: space-between
+
+.button
+    margin: 0
+    padding: 0
+    width: 64px
+    height: 64px
+    display: grid
+    place-content: center
+    cursor: pointer
+    border-radius: 16px
+    color: black
+    font-size: 64px
+    font-weight: bold
+    outline: none
+    border: none
+    & :active
+        border: none
+
+.button-add
+    background-image: url('../assets/add.svg')
+
+    &:hover
+        transition: 1.5s
+        transform: rotate(180deg)
+
+
+.button-empty
+    background-image: url('../assets/update.svg')
+
+    &:hover
+        transition: 1s
+        transform: rotate(180deg)

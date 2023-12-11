@@ -11,8 +11,8 @@ urlpatterns = [
                 views.ShowCity.as_view(),),
         path('ShowIdCity/<pk>', 
                 views.ShowIDCity.as_view()),
-        path('UpdateCity/',
+        path('UpdateCity/<pk>',
                 views.UpdateCity.as_view()),
-        path('DeleteCity/',
+        path('DeleteCity/<pk>',
                 views.DeleteCity.as_view()),
 ]

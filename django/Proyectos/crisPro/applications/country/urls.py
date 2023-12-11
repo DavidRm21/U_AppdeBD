@@ -11,8 +11,8 @@ urlpatterns = [
                 views.ShowCountry.as_view(),),
         path('ShowIdCountry/<pk>', 
                 views.ShowIdCountry.as_view()),
-        path('UpdateCountry/', 
+        path('UpdateCountry/<pk>', 
                 views.UpdateCountry.as_view()),
-        path('DeleteCountry/',
+        path('DeleteCountry/<pk>',
                 views.DeleteCountry.as_view()),
 ]

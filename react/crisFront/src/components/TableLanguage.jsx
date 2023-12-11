@@ -1,9 +1,16 @@
 import React from 'react'
 import '../styles/components/TableCity.sass'
+import { deleteLanguageApi } from '../api/language/DeleteLanguage'
 
-export const TableLanguage = ({listado}) => {
+export const TableLanguage = ({languageList, reset, setCurrentId}) => {
 
-    let languageList = listado
+    
+    const deleteLanguage = (languageID) => {
+        deleteLanguageApi(languageID).then(() => {
+            reset(v => !v)
+        })
+        .catch(console.error)
+    } 
 
     return (    
         <div className="form-container">
@@ -16,6 +23,8 @@ export const TableLanguage = ({listado}) => {
                         <th>Acronimo</th>
                         <th>Lenguaje</th>
                         <th>Hablantes en el mundo</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -27,6 +36,11 @@ export const TableLanguage = ({listado}) => {
                             <td>{item.acronym}</td>
                             <td>{item.language}</td>
                             <td>{item.percentage} %</td>
+                            <td className='table-icon table-icon-del'
+                            onClick={() => deleteLanguage(item.id)}></td>
+                            <td className='table-icon table-icon-look'
+                            onClick={() => setCurrentId(item.id)}
+                            ></td>
                         </tr>
                     ))}
 

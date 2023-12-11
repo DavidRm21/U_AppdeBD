@@ -50,14 +50,6 @@ const Menu = () => {
             >País
         </NavLink>
 
-        <div className='navbar-profile'>
-            <div className='profile-photo'></div>
-            <div className='profile-data'>
-                <div className='profile-name'>Cristian David Romero Melo</div>
-                <div className='profile-description'>Estudiante de Universitaria</div>
-            </div>
-        </div>
-
     </nav>
 
 

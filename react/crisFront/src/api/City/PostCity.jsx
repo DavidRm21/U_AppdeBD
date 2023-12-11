@@ -1,23 +1,7 @@
 import axios from "axios";
 
-export const postCityApi = (url,name,district, population, photo, pollutionRate, countryCode)=>{
+export const PostCityApi = (data)=>{
 
-    const data = {
-        "name": name,
-        "district": district,
-        "population": population,
-        "photo": photo,
-        "pollutionRate": pollutionRate,
-        "countryCode": countryCode
-    }
-    console.log('Objeto: ',data);
-    axios.post(url, data)
-    .then(response => {
-        console.log('post success');
-        console.log('response',response)
-    })
-    .catch(error => {
-        console.log('Oh No! Error!');
-        console.log(error)
-    })
+    return axios.post('http://127.0.0.1:8000/api/NewCity/', data)
+
 }
