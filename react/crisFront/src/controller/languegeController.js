@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { GetByIdLanguageApi } from "../api/language/GetByIDLanguage"
 import { postLanguageApi } from "../api/language/PostLanguage"
 import { updateLanguageApi } from "../api/language/UpdateLanguage"
+import { getLanguageApi } from "../api/language/GetLanguage"
 
 export default function languegeController ({setValue, reset}) {
 
