@@ -1,14 +1,7 @@
 import React from 'react'
 import { DeleteCountryApi } from '../api/Country/DeleteCountry'
 
-export const TableCountry = ({ countryList, setResetList, setCurrentId }) => {
-
-    const deleteCountry = (languageID) => {
-        DeleteCountryApi(languageID).then(() => {
-            setResetList(v => !v)
-        })
-        .catch(console.error)
-    } 
+export const TableCountry = ({ countryList, setResetList, setCurrentId, deleteCountry}) => {
 
     return (    
         <div className="form-container">

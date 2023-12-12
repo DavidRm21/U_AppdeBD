@@ -1,82 +1,24 @@
-import { useEffect, useState } from 'react'
 import { TableCity } from '../components/TableCity'
-import { getCityApi } from '../api/City/GetCity'
 import { CardCity } from '../components/CardCity'
 import { ButtonCRUD } from '../components/ButtonCrud'
 import { useForm } from 'react-hook-form'
-import { UpdateCityApi } from '../api/City/UpdateCity'
-import { PostCityApi } from '../api/City/PostCity'
-import { GetByIdCityApi } from '../api/City/GetByIdCity'
+import countryController from '../controller/cityController'
+
 
 export const City = () => {
 
     const { handleSubmit, register, reset, setValue } = useForm()
-    const [currentId, setCurrentId] = useState()
-    const [resetList, setResetList] = useState(false)
-    const [cityList, setCityList] = useState([])
 
-    // En el momento que se da click para actualizar o crear 
-    const onSubmit = ( values ) => {
-        
-        console.log(values.photo_city
-            )
-        if ( currentId ) {
-            updateCity(values)
-            return 
-        }
+    const {
+        countryList,
+        deleteCity,
+        currentId,
+        onSubmit,
+        onError,
+        cityList,
+        setResetList,
+        setCurrentId } = countryController({reset, setValue});
 
-        // Guardar los valores en la Base de datos
-        PostCityApi( values )
-                            .then((response) => {
-                                console.log('Registro cargado: ', response)
-                                setResetList(v => !v)
-                                reset()            
-                            }).catch(() =>{
-                                console.log('Error: ', values)
-                                console.error
-                            })
-    }
-
-    // En caso de que el form tenga algun error se ejecuta:
-    const onError = (error) => {
-        console.log('error ->', error)
-    }
-
-    // Función de actualizar datos en base de datos
-    const updateCity = (data) => {
-        UpdateCityApi(currentId, data)
-                            .then(() => {
-                                setResetList(v => !v)
-                                reset()
-                                setCurrentId()
-                            })
-                            .catch(console.error)
-    }
-    
-    const loadCities = async () => {
-        const response = await getCityApi()
-        setCityList(response)
-    }
-
-    useEffect(() => {
-        (async () => {
-            await loadCities();
-        })();
-    }, [resetList]);
-    
-    // Trae lenguaje por id y setea el formulario
-    useEffect(() => {
-        if (currentId) {
-            GetByIdCityApi(currentId).then(({data}) => {
-            setValue('country_code', data.country_code)
-            setValue('name', data.name)
-            setValue('district', data.district)
-            setValue('population', data.population)
-            setValue('photo_city', data.photo_city)
-            setValue('pollution_rate', data.pollution_rate)
-            }).catch(console.error)
-        }
-    }, [currentId])
 
 
     return (
@@ -91,6 +33,13 @@ export const City = () => {
                 </div>
 
                 <div className="form-model-fields">
+
+                    {/* <label>Código</label>
+                    <select {...register('country_code', { required: true })}>
+                        {countryList.map((country) => (
+                            <option key={country.id} value={country.id}>{country.id} - {country.code}</option>
+                        ))}
+                    </select> */}
 
                     <label htmlFor=""> Codigo:
                     </label>
@@ -126,6 +75,7 @@ export const City = () => {
                 setResetList= {setResetList}
                 cityList = {cityList}
                 setCurrentId = {setCurrentId}
+                deleteCity = {deleteCity}
                 />
 
             </div>

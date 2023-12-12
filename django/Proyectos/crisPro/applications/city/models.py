@@ -28,7 +28,8 @@ class City(models.Model):
     photo_city = models.ImageField(
         'PhotoCity',
         upload_to='PhotoImage',
-        null=True
+        null=True,
+        blank=True
         )
     pollution_rate = models.DecimalField(
         'PollutionRate',

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 import { GetByIdLanguageApi } from "../api/language/GetByIDLanguage"
 import { postLanguageApi } from "../api/language/PostLanguage"
 import { updateLanguageApi } from "../api/language/UpdateLanguage"
-import { getLanguageApi } from "../api/language/GetLanguage"
+import { getLanguageApi } from "../api/Language/GetLanguage"
+import { deleteLanguageApi } from "../api/language/DeleteLanguage"
 
 export default function languegeController ({setValue, reset}) {
 
@@ -14,6 +15,7 @@ export default function languegeController ({setValue, reset}) {
     // En el momento que se da click para actualizar o crear 
     const onSubmit = ( values ) => {
 
+
         values.is_official = values.is_official?'T':'F'
 
         if ( currentId ) {
@@ -22,28 +24,29 @@ export default function languegeController ({setValue, reset}) {
         }
 
         // Guardar los valores en la Base de datos
-        postLanguageApi( values )
-                            .then((response) => {
-                                console.log('Registro cargado: ', response)
-                                setResetList(v => !v)
-                                reset()            
-                            }).catch(console.error)
+        postLanguage(values)
+
     }
 
-    // En caso de que el form tenga algun error se ejecuta:
+    const postLanguage = async (data) => {
+        await postLanguageApi(data)
+        setResetList(v => !v)
+        reset()
+    }
+
+
+
+    // En caso de que el FORM contenga un error:
     const onError = (error) => {
         console.log('error ->', error)
     }
 
     // Función de actualizar datos en base de datos
-    const updateLanguage = (data) => {
-        updateLanguageApi(currentId, data)
-                            .then(() => {
-                                setResetList(v => !v)
-                                reset()
-                                setCurrentId()
-                            })
-                            .catch(console.error)
+    const updateLanguage = async (data) => {
+        await updateLanguageApi(currentId, data)
+        setResetList(v => !v)
+        reset()
+        setCurrentId()
     }
     
     // Carga la lista de lenguajes
@@ -62,17 +65,31 @@ export default function languegeController ({setValue, reset}) {
     // Trae lenguaje por id y setea el formulario
     useEffect(() => {
         if (currentId) {
-            GetByIdLanguageApi(currentId).then(({data}) => {
+            (async () => {
+                await GetByID()
+            })()
+        }
+    }, [currentId])
+
+    const GetByID = async () => {
+        
+        const data = await GetByIdLanguageApi(currentId)
             setValue('acronym', data.acronym)
             setValue('language', data.language)
             setValue('is_official', data.is_official=='T')
             setValue('percentage', data.percentage)
             setValue('iso_code', data.iso_code)
-            }).catch(console.error)
-        }
-    }, [currentId])
+    }
+
+    const deleteLanguage = async (languageID) => {
+        await deleteLanguageApi(languageID)
+        setResetList(v => !v)
+    } 
+
+    
 
     return {
+        deleteLanguage,
         onSubmit,
         onError,
         languageList,

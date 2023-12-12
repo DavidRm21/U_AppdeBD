@@ -1,15 +1,10 @@
 import axios from 'axios';
 
-export const getCityApi = () => {
+export const getCityApi = (url) => {
 
-    return axios.get('http://localhost:8000/api/ShowCity/')
-                .then(async (res) => {
-                    let cityArray = [];
-
-                    res.data.map((cities => {
-                        cityArray.push(cities)
-                    }))
+    return axios.get(url)
+                .then(async ({data}) => {
                     
-                    return cityArray;
+                    return data;
                 })
 }

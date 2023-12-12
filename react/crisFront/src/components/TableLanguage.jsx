@@ -2,15 +2,7 @@ import React from 'react'
 import '../styles/components/TableCity.sass'
 import { deleteLanguageApi } from '../api/language/DeleteLanguage'
 
-export const TableLanguage = ({languageList, reset, setCurrentId}) => {
-
-    
-    const deleteLanguage = (languageID) => {
-        deleteLanguageApi(languageID).then(() => {
-            reset(v => !v)
-        })
-        .catch(console.error)
-    } 
+export const TableLanguage = ({languageList, reset, setCurrentId, deleteLanguage}) => {
 
     return (    
         <div className="form-container">

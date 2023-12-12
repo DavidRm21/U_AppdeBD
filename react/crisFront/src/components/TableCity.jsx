@@ -1,15 +1,8 @@
 import React from 'react'
 import { DeleteCityApi } from '../api/City/DeleteCity'
 
-export const TableCity = ({cityList, setResetList, setCurrentId}) => {
+export const TableCity = ({cityList, setResetList, setCurrentId, deleteCity}) => {
 
-
-    const deleteCity = (cityID) => {
-        DeleteCityApi(cityID).then(() => {
-            setResetList(v => !v)
-        })
-        .catch(console.error)
-    }
     return (    
         <div className="form-container">
 

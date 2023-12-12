@@ -2,13 +2,14 @@ import { TableLanguage } from '../components/TableLanguage'
 import { CardLanguage } from '../components/CardLanguage'
 import { ButtonCRUD } from '../components/ButtonCrud'
 import { useForm } from 'react-hook-form'
-import languegeController from '../controller/languegeController'
+import languegeController from '../controller/languageController'
 
 export const Language = () => {
 
     const {handleSubmit, register, reset, setValue} = useForm()
 
     const { 
+        deleteLanguage,
         onSubmit,
         onError,
         languageList,
@@ -59,6 +60,7 @@ export const Language = () => {
             languageList = {languageList}
             reset = {setResetList}
             setCurrentId = {setCurrentId}
+            deleteLanguage = {deleteLanguage}
             />
             </div>
 
